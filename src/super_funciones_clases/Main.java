@@ -2,6 +2,8 @@ package super_funciones_clases;
 
 import java.util.ArrayList;
 import java.util.List;
+import super_funciones_clases.clases.Aleatorio;
+import super_funciones_clases.clases.Naturales;
 import super_funciones_clases.clases.SoloImpares;
 import super_funciones_clases.clases.SoloPares;
 
@@ -12,10 +14,10 @@ public class Main {
         public Main() {
         
         // Crear lista de enteros
-        List<Integer> numeros = crearLista();
+        List<Integer> numeros = SuperFunciones.proveer(10, new Naturales());
         System.out.println(numeros);
         // Obtener solo los numeros pares
-        List<Integer> filtrados = SuperFunciones.filtrar(numeros, new SoloImpares());
+        List<Integer> filtrados = SuperFunciones.filtrar(numeros, new SoloPares());
         System.out.println(filtrados);
         // Elevar al cuadrado los numeros pares
         List<Integer> cuadrados = elevarAlCuadrado(filtrados);
