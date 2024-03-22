@@ -8,6 +8,7 @@ package super_funciones_clases;
 
 import java.util.ArrayList;
 import java.util.List;
+import super_funciones_clases.interfaces.Funcion;
 import super_funciones_clases.interfaces.Predicado;
 import super_funciones_clases.interfaces.Proveedor;
 
@@ -30,4 +31,13 @@ public class SuperFunciones {
         }
         return resultado;
     }
+    
+    public static List<Integer> transformar(List<Integer> valores, Funcion funcion) {
+        List<Integer> resultado = new ArrayList<Integer>();
+        for (Integer valor: valores) {
+            resultado.add(funcion.aplicar(valor));
+        }
+        return resultado;
+    }
+    
 }

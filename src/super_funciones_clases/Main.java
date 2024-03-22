@@ -2,6 +2,8 @@ package super_funciones_clases;
 
 import java.util.ArrayList;
 import java.util.List;
+import super_funciones_clases.clases.AlCuadrado;
+import super_funciones_clases.clases.AlCubo;
 import super_funciones_clases.clases.Aleatorio;
 import super_funciones_clases.clases.Naturales;
 import super_funciones_clases.clases.SoloImpares;
@@ -19,8 +21,9 @@ public class Main {
         // Obtener solo los numeros pares
         List<Integer> filtrados = SuperFunciones.filtrar(numeros, new SoloPares());
         System.out.println(filtrados);
-        // Elevar al cuadrado los numeros pares
-        List<Integer> cuadrados = elevarAlCuadrado(filtrados);
+        // Obtener el cuadrado de cada numero
+        //List<Integer> cuadrados = SuperFunciones.transformar(filtrados, new AlCuadrado());
+        List<Integer> cuadrados = SuperFunciones.transformar(filtrados, new AlCubo());
         System.out.println(cuadrados);
         // Mostrar la lista de los numeros elevados al cuadrado
         List<Integer> mostrados = mostrarLista(cuadrados);
@@ -34,32 +37,32 @@ public class Main {
         new Main();
     }
 
-    private List<Integer> crearLista() {
-        // regresa una lista de numeros enteros
-        return List.of(0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144);
-    }
+//    private List<Integer> crearLista() {
+//        // regresa una lista de numeros enteros
+//        return List.of(0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144);
+//    }
 
-    private List<Integer> filtrarPares(List<Integer> numeros) {
-        List<Integer> resultado = new ArrayList<>();
-        /* recorre la lista numeros y almacena los numeros pares
-        a la lista resultado, la cual es devuelta */
-        for (Integer numero : numeros) {
-            if (numero % 2 == 0) {
-                resultado.add(numero);
-            }
-        }
-        return resultado; 
-    }
+//    private List<Integer> filtrarPares(List<Integer> numeros) {
+//        List<Integer> resultado = new ArrayList<>();
+//        /* recorre la lista numeros y almacena los numeros pares
+//        a la lista resultado, la cual es devuelta */
+//        for (Integer numero : numeros) {
+//            if (numero % 2 == 0) {
+//                resultado.add(numero);
+//            }
+//        }
+//        return resultado; 
+//    }
     
-    private List<Integer> elevarAlCuadrado(List<Integer> numeros) {
-        List<Integer> resultado = new ArrayList<>();
-        /* recorre la lista numeros eleva al cuadrado cada numero
-        almacenandolo en la lista resultados, la cual es devuelta */
-        for (Integer numero : numeros) {
-            resultado.add(numero * numero);
-        }
-        return resultado; 
-    }
+//    private List<Integer> elevarAlCuadrado(List<Integer> numeros) {
+//        List<Integer> resultado = new ArrayList<>();
+//        /* recorre la lista numeros eleva al cuadrado cada numero
+//        almacenandolo en la lista resultados, la cual es devuelta */
+//        for (Integer numero : numeros) {
+//            resultado.add(numero * numero);
+//        }
+//        return resultado; 
+//    }
     
     private List<Integer> mostrarLista (List<Integer> numeros) {
         // recorre la lista numeros y va imprimiendo cada numero
