@@ -6,18 +6,20 @@ import super_funciones_clases.clases.AlCuadrado;
 import super_funciones_clases.clases.AlCubo;
 import super_funciones_clases.clases.Aleatorio;
 import super_funciones_clases.clases.Impresor;
+import super_funciones_clases.clases.Multiplicador;
 import super_funciones_clases.clases.Naturales;
 import super_funciones_clases.clases.SoloImpares;
 import super_funciones_clases.clases.SoloPares;
+import super_funciones_clases.clases.Sumador;
 
-    // Antonio Patiño 
-
+// Antonio Patiño 
 public class Main {
 
-        public Main() {
-        
+    public Main() {
+
         // Crear lista de enteros
-        List<Integer> numeros = SuperFunciones.proveer(10, new Naturales());
+        //List<Integer> numeros = SuperFunciones.proveer(10, new Naturales());
+        List<Integer> numeros = SuperFunciones.proveer(10, new Aleatorio());
         System.out.println(numeros);
         // Obtener solo los numeros pares
         List<Integer> filtrados = SuperFunciones.filtrar(numeros, new SoloPares());
@@ -31,11 +33,12 @@ public class Main {
         // Mostrar cada cuadrado por pantalla y no retornar nada
         SuperFunciones.consumir(transformados, new Impresor());
         // Mostrar una suma total de la lista que se mostró
-        int total = sumarLista(actuados);
-        System.out.println("Suma de cuadrados: " + total);
-        
+        //int total = SuperFunciones.reducir(actuados, 0, new Sumador());
+        int total = SuperFunciones.reducir(actuados, 1, new Multiplicador());
+        System.out.println("Reduccion: " + total);
+
     }
-    
+
     public static void main(String[] args) {
         new Main();
     }
@@ -44,7 +47,6 @@ public class Main {
 //        // regresa una lista de numeros enteros
 //        return List.of(0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144);
 //    }
-
 //    private List<Integer> filtrarPares(List<Integer> numeros) {
 //        List<Integer> resultado = new ArrayList<>();
 //        /* recorre la lista numeros y almacena los numeros pares
@@ -56,7 +58,6 @@ public class Main {
 //        }
 //        return resultado; 
 //    }
-    
 //    private List<Integer> elevarAlCuadrado(List<Integer> numeros) {
 //        List<Integer> resultado = new ArrayList<>();
 //        /* recorre la lista numeros eleva al cuadrado cada numero
@@ -66,7 +67,6 @@ public class Main {
 //        }
 //        return resultado; 
 //    }
-    
 //    private List<Integer> mostrarLista (List<Integer> numeros) {
 //        // recorre la lista numeros y va imprimiendo cada numero
 //        for (Integer numero : numeros) {
@@ -74,8 +74,7 @@ public class Main {
 //        }
 //        return numeros; 
 //    }
-    
-    private Integer sumarLista (List<Integer> numeros) {
+    private Integer sumarLista(List<Integer> numeros) {
         int total = 0;
         /* recorre la lista numeros y a su vez se van sumando
         y la suma total se almacena en la variable total */
@@ -84,5 +83,5 @@ public class Main {
         }
         return total;
     }
-    
+
 }

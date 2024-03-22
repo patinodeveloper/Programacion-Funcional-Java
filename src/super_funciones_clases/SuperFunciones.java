@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import super_funciones_clases.interfaces.Consumidor;
 import super_funciones_clases.interfaces.Funcion;
+import super_funciones_clases.interfaces.FuncionBinaria;
 import super_funciones_clases.interfaces.Predicado;
 import super_funciones_clases.interfaces.Proveedor;
 
@@ -53,4 +54,12 @@ public class SuperFunciones {
         }
     }
 
+    public static Integer reducir(List<Integer> valores, Integer identidad, FuncionBinaria funcionBinaria) {
+        int total = identidad;
+        for (Integer valor : valores) {
+            total = funcionBinaria.aplicar(total, valor);
+        }
+        return total;
+    }
+    
 }
