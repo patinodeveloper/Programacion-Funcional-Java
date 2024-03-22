@@ -5,6 +5,7 @@ import java.util.List;
 import super_funciones_clases.clases.AlCuadrado;
 import super_funciones_clases.clases.AlCubo;
 import super_funciones_clases.clases.Aleatorio;
+import super_funciones_clases.clases.Impresor;
 import super_funciones_clases.clases.Naturales;
 import super_funciones_clases.clases.SoloImpares;
 import super_funciones_clases.clases.SoloPares;
@@ -23,12 +24,14 @@ public class Main {
         System.out.println(filtrados);
         // Obtener el cuadrado de cada numero
         //List<Integer> cuadrados = SuperFunciones.transformar(filtrados, new AlCuadrado());
-        List<Integer> cuadrados = SuperFunciones.transformar(filtrados, new AlCubo());
-        System.out.println(cuadrados);
-        // Mostrar la lista de los numeros elevados al cuadrado
-        List<Integer> mostrados = mostrarLista(cuadrados);
+        List<Integer> transformados = SuperFunciones.transformar(filtrados, new AlCubo());
+        System.out.println(transformados);
+        // Mostrar cada cuadrado por pantalla y retornar lista
+        List<Integer> actuados = SuperFunciones.actuar(transformados, new Impresor());
+        // Mostrar cada cuadrado por pantalla y no retornar nada
+        SuperFunciones.consumir(transformados, new Impresor());
         // Mostrar una suma total de la lista que se mostró
-        int total = sumarLista(mostrados);
+        int total = sumarLista(actuados);
         System.out.println("Suma de cuadrados: " + total);
         
     }
@@ -64,13 +67,13 @@ public class Main {
 //        return resultado; 
 //    }
     
-    private List<Integer> mostrarLista (List<Integer> numeros) {
-        // recorre la lista numeros y va imprimiendo cada numero
-        for (Integer numero : numeros) {
-            System.out.println(numero);
-        }
-        return numeros; 
-    }
+//    private List<Integer> mostrarLista (List<Integer> numeros) {
+//        // recorre la lista numeros y va imprimiendo cada numero
+//        for (Integer numero : numeros) {
+//            System.out.println(numero);
+//        }
+//        return numeros; 
+//    }
     
     private Integer sumarLista (List<Integer> numeros) {
         int total = 0;
